@@ -22,5 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+<<<<<<< Updated upstream
 
 modif
+=======
+>>>>>>> Stashed changes
