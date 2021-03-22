@@ -18,3 +18,15 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;
+
+
+/*
+mongodb+srv://admin:<password>@propriete.1u3lp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+mongodb+srv://admin:<password>@propriete.1u3lp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+
+
+*/
