@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-export const proprieteSchema = new mongoose.Schema({
+const proprieteSchema = new mongoose.Schema({
   title: String,
   description: String,
   type: String,
@@ -8,4 +8,6 @@ export const proprieteSchema = new mongoose.Schema({
   isFurnished: String,
 });
 
-export const Propriete = mongoose.model("Propriete", proprieteSchema);
+const Propriete = mongoose.model("Propriete", proprieteSchema);
+
+module.exports = {proprieteSchema, Propriete};
