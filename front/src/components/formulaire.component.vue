@@ -1,20 +1,34 @@
 <template>
           <div id="displayPictureEnergyLabel">
-            <input type="radio" id="A" name="energyLabel" value="A" v-model="bilanEnergetique">
-            <input type="radio" id="B" name="energyLabel" value="B" v-model="bilanEnergetique">
-            <input type="radio" id="C" name="energyLabel" value="C" v-model="bilanEnergetique">
-            <input type="radio" id="D" name="energyLabel" value="D" v-model="bilanEnergetique">
-            <input type="radio" id="E" name="energyLabel" value="E" v-model="bilanEnergetique">
-            <input type="radio" id="F" name="energyLabel" value="F" v-model="bilanEnergetique">
-            <input type="hidden" name="PathPicturesForEnergyLabel" :value=
-            "displayPicturesEnergyLabel('../pictures',false)">
-            <img :src="{pathPicturesEnergyLabel}" alt="">
+            <label>Bilan énergétique</label>
+            <div>
+              <span>A</span>
+              <input type="radio" id="A" name="energyLabel" value="A" v-model="bilanEnergetique">
+              <span>B</span>
+              <input type="radio" id="B" name="energyLabel" value="B" v-model="bilanEnergetique">
+              <span>C</span>
+              <input type="radio" id="C" name="energyLabel" value="C" v-model="bilanEnergetique">
+              <span>D</span>
+              <input type="radio" id="D" name="energyLabel" value="D" v-model="bilanEnergetique">
+              <span>E</span>
+              <input type="radio" id="E" name="energyLabel" value="E" v-model="bilanEnergetique">
+              <span>F</span>
+              <input type="radio" id="F" name="energyLabel" value="F" v-model="bilanEnergetique">
+              <input type="hidden" name="PathPicturesForEnergyLabel" :value=
+              "displayPicturesEnergyLabel('../pictures',false)">
             </div>
+            <!-- <img src= "/pictures/ALight.png" alt="mm"> -->
+            <img :src= "displayPicturesEnergyLabel('/pictures',false)" alt="mm">
+          </div>
 </template>
 <script>
 export default {
   name: 'Ad',
-  data: () => ({ bilanEnergetique: 'A' }),
+  pathPicturesEnergyLabel: 'ceci est un test',
+  data: () => ({
+    bilanEnergetique: 'A',
+    pathPicturesEnergyLabel: '/pictures',
+  }),
   props: {
     ad: Object,
   },
@@ -32,7 +46,7 @@ export default {
           color = 'Light';
         }
         const pathPicturesEnergyLabell = `${pathPicturesEnergyLabel}/${Tiers}${color}.png`;
-        return `<img src="${pathPicturesEnergyLabell}" alt="Etiquette énergétique qui affiche l'indice ${Tiers}">`;
+        return `${pathPicturesEnergyLabell}`;
       }
       if (Tiers === 'Inexistant') {
         return "<p>Il n'y a pas d'étiquette énergetique</p>";
