@@ -2,9 +2,8 @@
   <article>
     <h2>{{ advert.title }}</h2>
     <p>{{ advert.description }}</p>
-    <strong>{{advert.price}}</strong>
-    <!-- <strong>{{ affichePrix(advert.price) }}</strong> -->
-    <div id="conteneur">
+    <strong>{{ affichePrix(advert.price) }}</strong>
+    <div id="maison">
         <div class="item">
            bonjour
         </div>
@@ -31,6 +30,13 @@ export default {
     },
   },
   methods: {
+    affichePrix(prix) {
+      return Intl.NumberFormat('fr-FR', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0,
+      }).format(prix);
+    },
   },
 };
 </script>
@@ -39,7 +45,7 @@ export default {
 article {
     border: 1px #42b983 solid;
 }
-#conteneur{
+#maison{
     border: 1px black solid;
  }
 .item{
