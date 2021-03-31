@@ -7,7 +7,7 @@ var router = express.Router();
 // example use
 
 const Proprety = mongoose.model('Proprety', schema);
-(energylabel, prix, propertyname, city, interior area in squaremeter, exterior area in squaremeter, construcctYears, EstateTiers, room garage, images, description )
+//(energylabel, prix, propertyname, city, interior area in squaremeter, exterior area in squaremeter, construcctYears, EstateTiers, room garage, images, description )
 const m = new Proprety;
 m.name = 'Statue of Liberty';
 m.age = 125;
