@@ -1,8 +1,9 @@
 <template>
   <article>
-    <h2>{{ ad.title }}</h2>
-    <p>{{ ad.description }}</p>
-    <strong>{{ affichePrix(ad.price) }}</strong>
+    <h2>{{ advert.title }}</h2>
+    <p>{{ advert.description }}</p>
+    <strong>{{advert.price}}</strong>
+    <!-- <strong>{{ affichePrix(advert.price) }}</strong> -->
     <div id="conteneur">
         <div class="item">
            bonjour
@@ -24,6 +25,10 @@
 export default {
   name: 'Adminadvert',
   props: {
+    advert: {
+      type: Object,
+      required: true,
+    },
   },
   methods: {
   },
