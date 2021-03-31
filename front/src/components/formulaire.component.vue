@@ -1,19 +1,19 @@
 <template>
-          <div id="displayPictureEnergyLabel">
+          <div id="displayPictureEnergyLabel" class="input">
             <label>Bilan énergétique</label>
             <div>
-              <span>A</span>
               <input type="radio" id="A" name="energyLabel" value="A" v-model="bilanEnergetique">
-              <span>B</span>
+               <span>A</span>
               <input type="radio" id="B" name="energyLabel" value="B" v-model="bilanEnergetique">
-              <span>C</span>
+              <span>B</span>
               <input type="radio" id="C" name="energyLabel" value="C" v-model="bilanEnergetique">
-              <span>D</span>
+              <span>C</span>
               <input type="radio" id="D" name="energyLabel" value="D" v-model="bilanEnergetique">
-              <span>E</span>
+              <span>D</span>
               <input type="radio" id="E" name="energyLabel" value="E" v-model="bilanEnergetique">
-              <span>F</span>
+              <span>E</span>
               <input type="radio" id="F" name="energyLabel" value="F" v-model="bilanEnergetique">
+              <span>F</span>
               <input type="hidden" name="PathPicturesForEnergyLabel" :value=
               "displayPicturesEnergyLabel('../pictures',false)">
             </div>
