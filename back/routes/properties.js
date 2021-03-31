@@ -18,7 +18,7 @@ const Model = mongoose.model('Model', modelSchema);
 
 
 // Récupère tous les models
-Model.find().then(models) => {
+Model.find().then(models => {
     console.log(models);
   }).catch(err => {
     // Erreur avec mongo
