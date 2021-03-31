@@ -39,7 +39,6 @@
       <div class="advertsContainer">
         <ad-component v-for="ad in filteredAdvert" v-bind:key="ad.id" :ad="ad"></ad-component>
       </div>
-      <span>{{filter.prixMax}}</span>
     </main>
   </div>
 
@@ -81,17 +80,18 @@ export default {
   }),
   computed: {
     filteredAdvert() {
-      if (this.filter.type.length === 0) {
-        return this.adverts;
+      let res = this.adverts;
+      if (this.filter.type.length !== 0) {
+        res = this.adverts.filter((ad) => this.filter.type.some((type) => type === ad.type));
       }
-      return this.adverts.filter((ad) => this.filter.type.some((type) => type === ad.type));
+      if (this.filter.prixMax !== undefined) {
+        res = res.filter((ad) => ad.price <= this.filter.prixMax);
+      }
+
+      return res;
     },
   },
   methods: {
-    /* selectType() {
-      console.log(this.filter.type);
-      this.adverts = this.adverts.filter((ad) => ad.type === this.filter);
-    }, */
   },
 };
 </script>

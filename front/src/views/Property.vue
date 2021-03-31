@@ -26,6 +26,7 @@
 
 <script>
 import FormulaireComponent from '../components/formulaire.component.vue';
+
 export default {
   components: {
     FormulaireComponent,
