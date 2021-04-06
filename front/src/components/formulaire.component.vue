@@ -60,4 +60,11 @@ export default {
   article {
     border: 1px #42b983 solid;
   }
+  #displayPictureEnergyLabel input[type='radio']{
+    height:15px;
+    width: 15px;
+  }
+  #displayPictureEnergyLabel span{
+    font-size: 20px;
+  }
 </style>
