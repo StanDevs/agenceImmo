@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import AdComponent from '../components/Ad.component.vue';
 
 export default {
@@ -91,7 +92,12 @@ export default {
       return res;
     },
   },
-  methods: {
+  mounted() {
+    console.log('test');
+    axios.get('http://localhost:3000/properties').then((response) => {
+      console.log(response.data);
+      this.adverts = response.data;
+    });
   },
 };
 </script>
