@@ -11,3 +11,4 @@ const proprieteSchema = new mongoose.Schema({
 const Propriete = mongoose.model("Propriete", proprieteSchema);
 
 module.exports = {proprieteSchema, Propriete};
+
