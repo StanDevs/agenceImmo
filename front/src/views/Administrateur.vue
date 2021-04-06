@@ -1,9 +1,9 @@
 <template>
-<div class="administrateur">
+  <div class="administrateur">
     <h1>Ceci est un test</h1>
     <button>Ajouter une maison</button>
     <adminadvert-component v-for="ad in adverttab" :key="ad" :advert="ad"></adminadvert-component>
-</div>
+  </div>
 </template>
 
 <script>
@@ -15,25 +15,25 @@ export default {
     AdminadvertComponent,
   },
   data: () => ({
-    adverttab: [{
-      title: 'maison 1',
-      description: 'test',
-      price: 20,
-    },
-    {
-      title: 'maison 2',
-      description: 'test2',
-      price: 40,
-    },
+    adverttab: [
+      {
+        title: 'maison 1',
+        description: 'test',
+        price: 20,
+      },
+      {
+        title: 'maison 2',
+        description: 'test2',
+        price: 40,
+      },
     ],
-
   }),
 };
 </script>
 
 <style>
-*{
-    background-color: rgb(56, 51, 51);
-    color: rgb(255, 255, 255);
+* {
+  background-color: rgb(56, 51, 51);
+  color: rgb(255, 255, 255);
 }
 </style>
