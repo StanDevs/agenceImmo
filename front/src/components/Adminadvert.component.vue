@@ -1,23 +1,15 @@
 <template>
-  <article>
-    <h2>{{ advert.title }}</h2>
-    <p>{{ advert.description }}</p>
-    <strong>{{ affichePrix(advert.price) }}</strong>
-    <div id="maison">
-        <div class="item">
-           bonjour
+    <div class="annonceItem">
+      <div class="annoncement">
+        <span class="spanTitle">{{advert.title}}</span>
+        <span class="spanType">{{advert.type}}</span>
+        <span class="spanPrice">{{advert.price}}</span>
+        <div>
         </div>
-        <div class="item">
-           bonjour
-        </div>
-        <div class="item">
-           bonjour
-        </div>
-        <div class="item">
-           bonjour
-        </div>
+         <a href=""><i class="fas fa-plus"></i></a>
+         <a href=""><i class="far fa-trash-alt"></i></a>
+      </div>
     </div>
-  </article>
 </template>
 
 <script>
@@ -39,16 +31,35 @@ export default {
     },
   },
 };
+
 </script>
 
 <style>
-article {
-    border: 1px #42b983 solid;
+.annonceItem{
+  display: block;
+  width: 80%;
+  margin: 0 auto;
 }
-#maison{
-    border: 1px black solid;
- }
-.item{
-    border: 1px black solid;
- }
+.annonceItem:nth-child(even){
+  background-color: rgb(248, 248, 248);
+}
+.annonceItem:nth-child(odd){
+  background-color: rgb(221, 221, 221);
+}
+.annoncement{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+.spanTitle,.spanType,.spanPrice{
+   width: 15%;
+}
+.inputButtonModif,.inputButtonDelete{
+  height: 20px;
+  width: 20px;
+}
+i{
+  color:#000;
+}
 </style>

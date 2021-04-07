@@ -17,13 +17,15 @@ export default {
   data: () => ({
     adverttab: [
       {
+        id: 1,
         title: 'maison 1',
-        description: 'test',
+        type: 'Maison',
         price: 20,
       },
       {
+        id: 2,
         title: 'maison 2',
-        description: 'test2',
+        type: 'Appartement',
         price: 40,
       },
     ],
@@ -32,8 +34,4 @@ export default {
 </script>
 
 <style>
-* {
-  background-color: rgb(56, 51, 51);
-  color: rgb(255, 255, 255);
-}
 </style>
