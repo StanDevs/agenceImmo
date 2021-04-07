@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {  
   //interraction avec la bd comme : Propriete.save
     const propriete = new Propriete(req.body); 
-    propriete.save().then(ProprieteSaved => {
+    Propriete.save(propriete).then(ProprieteSaved => {
       console.log(ProprieteSaved);
       res.send(ProprieteSaved);
     }).catch(err => {
