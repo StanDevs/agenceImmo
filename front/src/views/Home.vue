@@ -111,6 +111,7 @@ export default {
 <style>
 .home {
   display: flex;
+  padding: 50px;
 }
 
 .d-none {
@@ -156,6 +157,6 @@ main {
 .advertsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  grid-gap: 60px;
 }
 </style>
