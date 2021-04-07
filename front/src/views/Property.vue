@@ -2,69 +2,90 @@
   <div class="Property">
     <div class="formulaireAddProperty">
       <form @submit.prevent="addAdvert">
-        <!-- Information basique -->
         <div class="nameProperty input">
-          <label>Nom</label>
-          <input
-            class="styleInput"
-            v-model="title"
-            type="text"
-            name="propertyName"
-            id="propertyName"
-          />
+          <label for="nameInput">Nom</label>
+          <input class="styleInput" v-model="title" type="text" name="nameInput" id="nameInput" />
         </div>
-        <!-- Type  apartement immeuble etc.. -->
+
         <div class="typeProperty input">
-          <label>Type de propriété</label>
-          <select class="styleInput" v-model="type" name="type">
+          <label for="typeInput">Type de propriété</label>
+          <select class="styleInput" v-model="type" name="typeInput" id="typeInput">
             <option value="Maison">Maison</option>
             <option value="Appartement">Appartement</option>
             <option value="Terrain">Terrain</option>
             <option value="Parking/box">Parking/box</option>
           </select>
         </div>
-        <div class="cityPorperty input">
-          <label>Adresse</label>
-          <input class="styleInput" type="text" name="adress" id="adress" />
-        </div>
+
         <div class="descriptionPoperty input">
-          <label>Description</label>
-          <textarea class="styleInput" v-model="description" name="description" id="description">
-          </textarea>
+          <label for="descriptionInput">Description</label>
+          <textarea
+            class="styleInput"
+            v-model="description"
+            name="descriptionInput"
+            id="descriptionInput"
+          ></textarea>
         </div>
+
         <div class="interiorSquareMeterProperty input">
-          <label>Surface Intérieure</label>
+          <label for="inSurfaceInput">Surface Intérieure</label>
           <input
             class="styleInput"
             type="number"
-            name="InteriorAreaInSquareMeter"
-            id="AreInSquareMeter"
+            v-model="inSurface"
+            name="inSurfaceInput"
+            id="inSurfaceInput"
           />
         </div>
+
         <div class="exteriorSquareMeterProperty input">
-          <label>Surface exterieure</label>
+          <label for="outSurfaceInput">Surface exterieure</label>
           <input
             class="styleInput"
             type="number"
-            name="ExteriorAreaInSquareMeter"
-            id="ExteriorAreaInSquareMeter"
+            v-model="outSurface"
+            name="outSurfaceInput"
+            id="outSurfaceInput"
           />
         </div>
+
         <div class="priceProperty input">
-          <label>Prix</label>
-          <input class="styleInput" v-model="price" type="number" name="price" id="price" />
+          <label for="priceInput">Prix</label>
+          <input
+            class="styleInput"
+            v-model="price"
+            type="number"
+            name="priceInput"
+            id="priceInput"
+          />
         </div>
-        <!-- Meuble non meublé -->
+
         <div class="furnitureProperty input">
-          <label>Meublé</label>
-          <input type="checkbox" v-model="isFurnished" name="furniture" id="furniture" />
+          <label for="isFurnishedTrueInput">Meublé</label>
+          <input
+            type="radio"
+            value="true"
+            v-model="isFurnished"
+            name="isFurnishedInput"
+            id="isFurnishedTrueInput"
+          />
+          <label for="isFurnishedFalseInput">Non meublé</label>
+          <input
+            type="radio"
+            value="false"
+            v-model="isFurnished"
+            name="isFurnishedInput"
+            id="isFurnishedFalseInput"
+          />
         </div>
-        <!-- étiquette énergétique -->
+
         <formulaire-component></formulaire-component>
+
         <div class="sendHousePictures input">
-          <label>Images bien</label>
-          <input type="file" id="files" name="files" multiple />
+          <label for="imageInput">Images</label>
+          <input type="url" class="styleInput" v-model="image" id="imageInput" name="image" />
         </div>
+
         <button type="submit" class="submit">Valider</button>
       </form>
     </div>
@@ -81,19 +102,27 @@ export default {
   },
   data: () => ({
     title: '',
-    description: '',
     type: '',
-    price: '',
+    description: '',
+    inSurface: Number,
+    outSurface: Number,
+    price: Number,
     isFurnished: false,
+    bilan: '',
+    image: '',
   }),
   methods: {
     addAdvert() {
       const model = {
         title: this.title,
-        description: this.description,
         type: this.type,
+        description: this.description,
+        inSurface: this.inSurface,
+        outSurface: this.outSurface,
         price: this.price,
         isFurnished: this.isFurnished,
+        bilan: this.bilan,
+        image: this.image,
       };
       console.log(model);
       axios
