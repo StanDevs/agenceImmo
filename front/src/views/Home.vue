@@ -38,7 +38,7 @@
             <input
               type="checkbox"
               id="selectParking"
-              value="parking"
+              value="Parking/box"
               class="d-none"
               v-model="filter.type"
             />
@@ -58,7 +58,7 @@
           step="50000"
           style="width: 100%;"
         />
-        <span>{{filter.prixMax !== undefined ? `prix max : ${filter.prixMax}`:''}}</span>
+        <span>{{ filter.prixMax !== undefined ? `prix max : ${filter.prixMax}` : '' }}</span>
       </div>
     </aside>
     <main>
@@ -137,14 +137,14 @@ aside .item * {
   justify-content: center;
 }
 
-.buttonSelect input[type="checkbox"] + label {
+.buttonSelect input[type='checkbox'] + label {
   padding: 5px 10px;
   border-radius: 25px;
   border: 1px #42b983 solid;
   display: inline-block;
 }
 
-.buttonSelect input[type="checkbox"]:checked + label {
+.buttonSelect input[type='checkbox']:checked + label {
   background-color: #42b983;
   color: white;
 }

@@ -1,33 +1,35 @@
-var express = require('express');
-var ProprieteModel = require('../models/propriete.model.js'); //le schema  "export",propriete.model
+var express = require("express");
+var ProprieteModel = require("../models/propriete.model.js"); //le schema  "export",propriete.model
 var router = express.Router();
-const Propriete = ProprieteModel.Propriete;  //recuperer l'utilitaire d'interraction de la bd
+const Propriete = ProprieteModel.Propriete; //recuperer l'utilitaire d'interraction de la bd
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {  
+router.get("/", function (req, res, next) {
   //interraction avec la bd comme : Propriete.find
-  Propriete.find().then(propriete => {
-    console.log(propriete);
-    res.send(propriete);
-  }).catch(err => {
-    //erreur
-  }); 
+  Propriete.find()
+    .then((propriete) => {
+      console.log(propriete);
+      res.send(propriete);
+    })
+    .catch((err) => {
+      //erreur
+    });
 });
 
 /* POST users listing. */
-router.post('/', function(req, res, next) {  
+router.post("/", function (req, res, next) {
   //interraction avec la bd comme : Propriete.save
-    const propriete = new Propriete(req.body); 
-    Propriete.save(propriete).then(ProprieteSaved => {
-      console.log(ProprieteSaved);
-      res.send(ProprieteSaved);
-    }).catch(err => {
-   //erreur
-  }); 
+  const newPropriete = new Propriete(req.body);
+  console.log(newPropriete);
+  newPropriete
+    .save()
+    .then((ProprieteSaved) => {
+      //console.log(ProprieteSaved);
+    })
+    .catch((err) => {
+      //erreur
+      console.log(err);
+    });
 });
 
-
 module.exports = router; //Dernier truc a faire
-
-
-

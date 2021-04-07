@@ -97,7 +97,7 @@ export default {
       };
       console.log(model);
       axios
-        .post()
+        .post('http://localhost:3000/properties', model)
         .then((modelSaved) => {
           console.log(modelSaved);
         })
@@ -147,7 +147,7 @@ export default {
   border-radius: 4px;
   box-shadow: 0px 0px 12px rgb(124, 124, 124);
 }
-.formulaireAddProperty form input[type="checkbox"] {
+.formulaireAddProperty form input[type='checkbox'] {
   border-radius: 4px;
   height: 20px;
   width: 20px;
