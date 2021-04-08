@@ -6,8 +6,8 @@
       <p>{{ ad.description }}</p>
 
       <div class="advertDetails">
-        <div><i class="fas fa-home"></i> {{ ad.inSurface }}m²</div>
-        <div><i class="fas fa-tree"></i> {{ ad.outSurface }}m²</div>
+        <div><i class="fas fa-home"></i>{{ ad.inSurface }}m²</div>
+        <div><i class="fas fa-tree"></i>{{ ad.outSurface }}m²</div>
         <div>
           <span class="price">{{ affichePrix(ad.price) }}</span>
         </div>
@@ -15,7 +15,7 @@
 
       <div class="advertAction">
         <a href="">Ajouter aux favoris</a>
-        <a href="">Voir plus</a>
+        <a :href="'details/' + ad._id">Voir plus</a>
       </div>
     </div>
   </article>
@@ -83,7 +83,7 @@ export default {
 }
 
 .advertDetails i {
-  margin-right: 5px;
+  margin-right: 10px;
   color: #42b983;
 }
 
