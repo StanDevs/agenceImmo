@@ -3,11 +3,11 @@
       <div class="annoncement">
         <span class="spanTitle">{{advert.title}}</span>
         <span class="spanType">{{advert.type}}</span>
-        <span class="spanPrice">{{advert.price}}</span>
+        <span class="spanPrice">{{ affichePrix(advert.price) }}</span>
         <div>
         </div>
-         <a href=""><i class="fas fa-plus"></i></a>
-         <a href=""><i class="far fa-trash-alt"></i></a>
+        <i class="far fa-edit" @click="emptyDataForEdit(advert)"></i>
+        <i class="far fa-trash-alt"  @click="emptyDataForDelete(advert)"></i>
       </div>
     </div>
 </template>
@@ -15,6 +15,10 @@
 <script>
 export default {
   name: 'Adminadvert',
+  data: () => ({
+    itemToEdit: [],
+    itemToDelete: [],
+  }),
   props: {
     advert: {
       type: Object,
@@ -29,9 +33,18 @@ export default {
         maximumFractionDigits: 0,
       }).format(prix);
     },
+    emptyDataForEdit(adAdd) {
+      this.itemToEdit = adAdd;
+      this.$emit('edit', this.itemToEdit);
+      console.log('add item press');
+    },
+    emptyDataForDelete(adRm) {
+      this.itemToDelete = adRm;
+      this.$emit('remove', this.itemToDelete);
+      console.log('delete item press');
+    },
   },
 };
-
 </script>
 
 <style>
@@ -53,7 +66,7 @@ export default {
   padding: 10px;
 }
 .spanTitle,.spanType,.spanPrice{
-   width: 15%;
+   width: 26%;
 }
 .inputButtonModif,.inputButtonDelete{
   height: 20px;
