@@ -6,7 +6,7 @@
     </div>
     <div v-if="SendToForm._id != undefined ">
       <editComponent :key="SendToForm._id"  :advert=
-      "SendToForm"></editComponent>
+      "SendToForm" @edit="processToChargeVarForAdd"></editComponent>
     </div>
      <adminadvert-component v-for=
      "type in adverttab" :key="type.id" :advert="type" @edit=

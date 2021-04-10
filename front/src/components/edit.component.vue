@@ -3,6 +3,7 @@
         <div class="cache">
         </div>
     <div class="formulaireEditProperty">
+      <i class="far fa-times-circle" @click="emptyDataForEdit()"></i>
       <form >
         <div class="nameProperty input">
           <label for="nameInput">Nom</label>
@@ -128,6 +129,17 @@ export default {
       type: '',
     }],
   }),
+  mounted() {
+    this.price = this.advert.price;
+    this.title = this.advert.title;
+    this.type = this.advert.type;
+    this.description = this.advert.description;
+    this.inSurface = this.advert.inSurface;
+    this.outSurface = this.advert.outSurface;
+    this.isFurnished = this.advert.isFurnished;
+    this.bilan = this.advert.bilan;
+    this.image = this.advert.image;
+  },
   watch: {
     price() {
       this.dataToSend.price = this.price;
@@ -142,6 +154,11 @@ export default {
   methods: {
     getPrice() {
       return this.advert.price;
+    },
+    emptyDataForEdit() {
+      const itemToEdit = [];
+      this.$emit('edit', itemToEdit);
+      console.log(itemToEdit);
     },
   },
 };
