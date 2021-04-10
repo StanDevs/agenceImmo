@@ -7,12 +7,12 @@
         <div class="nameProperty input">
           <label for="nameInput">Nom</label>
           <input class="styleInput" v-model="title" type="text" name=
-          "nameInput" id="nameInput" :placeholder="this.advert.title" />
+          "nameInput" id="nameInput" :placeholder="advert.title" />
         </div>
 
         <div class="typeProperty input">
           <label for="typeInput">Type de propriété</label>
-          <select class="styleInput" v-model="typeOfObj" name="typeInput" id="typeInput">
+          <select class="styleInput" v-model="type" name="typeInput" id="typeInput">
             <option value="Maison">Maison</option>
             <option value="Appartement">Appartement</option>
             <option value="Terrain">Terrain</option>
@@ -27,7 +27,7 @@
             v-model="description"
             name="descriptionInput"
             id="descriptionInput"
-            :placeholder="this.advert.description"
+            :placeholder="advert.description"
           ></textarea>
         </div>
 
@@ -39,7 +39,7 @@
             v-model="inSurface"
             name="inSurfaceInput"
             id="inSurfaceInput"
-            :placeholder="this.advert.inSurface"
+            :placeholder="advert.inSurface"
           />
         </div>
 
@@ -51,7 +51,7 @@
             v-model="outSurface"
             name="outSurfaceInput"
             id="outSurfaceInput"
-            :placeholder="this.advert.outSurface"
+            :placeholder="advert.outSurface"
           />
         </div>
 
@@ -70,41 +70,69 @@
           <label for="isFurnishedTrueInput">Meublé</label>
           <input
             type="radio"
-            :value="this.advert.isFurnished"
+            :value="advert.isFurnished"
             v-model="isFurnished"
             name="isFurnishedInput"
             id="isFurnishedTrueInput"
-            :placeholder="this.advert.isFurnished"
-            :checked="this.advert.isFurnished"
+            :placeholder="advert.isFurnished"
+            :checked="advert.isFurnished"
           />
           <label for="isFurnishedFalseInput">Non meublé</label>
           <input
             type="radio"
-            :value="!this.advert.isFurnished"
+            :value="!advert.isFurnished"
             v-model="isFurnished"
             name="isFurnishedInput"
             id="isFurnishedFalseInput"
             :checked="true"
           />
         </div>
+        <FormulaireForEdit-component></FormulaireForEdit-component>
         <div class="sendHousePictures input">
           <label for="imageInput">Images</label>
           <input type="url" class="styleInput" v-model="image" id="imageInput" name=
-          "image" :placeholder="this.advert.image" />
+          "image" :placeholder="advert.image" />
         </div>
-        <p>{{price}}</p>
         <button type="submit" class="submit">Valider</button>
+        <p>{{dataToSend.price}}</p>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import FormulaireForEditComponent from './formulaire.component.vue';
+
 export default {
+  components: {
+    FormulaireForEditComponent,
+  },
   data: () => ({
-    tabData: this.advert,
-    price: 999,
+    title: '',
+    type: '',
+    description: '',
+    inSurface: Number,
+    outSurface: Number,
+    price: Number,
+    isFurnished: Boolean,
+    bilan: '',
+    image: '',
+    dataToSend: [{
+      description: '',
+      image: '',
+      inSurface: '',
+      isFurnished: '',
+      outSurface: '',
+      price: '',
+      title: '',
+      type: '',
+    }],
   }),
+  watch: {
+    price() {
+      this.dataToSend.price = this.price;
+    },
+  },
   props: {
     advert: {
       type: Object,
@@ -112,11 +140,8 @@ export default {
     },
   },
   methods: {
-    checkedOrNotChecked(Furnished) {
-      if (Furnished) {
-        return 'checked';
-      }
-      return '';
+    getPrice() {
+      return this.advert.price;
     },
   },
 };

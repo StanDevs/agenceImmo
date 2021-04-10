@@ -30,7 +30,7 @@ export default {
     pathPicturesEnergyLabel: '/pictures',
   }),
   props: {
-    ad: Object,
+    type: Object,
   },
   methods: {
     displayPicturesEnergyLabel(pathPicturesEnergyLabel, boolDarkOrLight) {

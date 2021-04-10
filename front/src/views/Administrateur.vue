@@ -4,14 +4,14 @@
       <a href="/administrateur">Administrateur</a>
       <a href="/property" class="addProperty">Ajouter un bien</a>
     </div>
-    <div v-if="this.SendToForm._id != undefined ">
+    <div v-if="SendToForm._id != undefined ">
       <editComponent :key="SendToForm._id"  :advert=
       "SendToForm"></editComponent>
     </div>
      <adminadvert-component v-for=
      "type in adverttab" :key="type.id" :advert="type" @edit=
      "processToChargeVarForAdd" @remove="processToChargeVarForDelete" ></adminadvert-component>
-     <h1>t:{{this.SendToForm.price}}</h1>
+     <h1>t:{{SendToForm.price}}</h1>
   </div>
 </template>
 
