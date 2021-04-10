@@ -28,7 +28,7 @@
             <input
               type="checkbox"
               id="selectTerrain"
-              value="terrain"
+              value="Terrain"
               class="d-none"
               v-model="filter.type"
             />

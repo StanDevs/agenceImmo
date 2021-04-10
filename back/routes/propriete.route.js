@@ -1,3 +1,4 @@
+const { ObjectId } = require("bson");
 var express = require("express");
 var ProprieteModel = require("../models/propriete.model.js"); //le schema  "export",propriete.model
 var router = express.Router();
@@ -13,6 +14,21 @@ router.get("/", function (req, res, next) {
     })
     .catch((err) => {
       //erreur
+    });
+});
+
+router.get("/:id", function (req, res, next) {
+  //interraction avec la bd comme : Propriete.find
+  const id = req.params.id;
+  console.log(id);
+
+  Propriete.findOne({ _id: req.params.id })
+    .then((propriete) => {
+      console.log(propriete);
+      res.send(propriete);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 
