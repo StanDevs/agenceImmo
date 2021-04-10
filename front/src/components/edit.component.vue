@@ -193,6 +193,7 @@ export default {
   border: 0px;
   border: solid 1px black;
   border-radius: 4px;
+  width: 35%;
   outline: none;
   padding: 5px;
   font-size: 20px;
