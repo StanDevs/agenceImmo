@@ -18,7 +18,6 @@
       @edit="processToChargeVarForAdd"
       @remove="removeAdvert"
     ></adminadvert-component>
-    <h1>t:{{ SendToForm.price }}</h1>
   </div>
 </template>
 

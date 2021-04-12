@@ -8,7 +8,7 @@
         <ad-component  :key="dataToSend.id" :ad="dataToSend"></ad-component>
       </div>
       <div class="content">
-        <form >
+        <form @submit='update'>
           <div class="nameProperty input">
             <label for="nameInput">Nom</label>
             <input class="styleInput" v-model="title" type="text" name=
@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import FormulaireForEditComponent from './formulaire.component.vue';
 import AdComponent from './Ad.component.vue';
 
@@ -201,6 +202,11 @@ export default {
     },
     processToChargeVarForAddBilan(value) {
       this.dataToSend.bilan = value;
+    },
+    update() {
+      console.log(this.dataToSend);
+      const link = `http://localhost:3000/properties/${this.dataToSend._id}`;
+      axios.patch(link, this.dataToSend);
     },
   },
 };

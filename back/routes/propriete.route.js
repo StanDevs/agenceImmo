@@ -48,6 +48,18 @@ router.post("/", function (req, res, next) {
     });
 });
 
+router.patch('/:id', (req, res, next) => {
+  const id = req.params.id
+  const prop = new Propriete(req.body);
+  delete prop._id;
+  console.log(prop);
+  Propriete.findByIdAndUpdate(id,prop, {
+    new: true
+  }).then(todoSaved => {
+    res.send(todoSaved)
+  })
+});
+
 router.delete("/:id", (req, res, next) => {
   const id = req.params.id;
   console.log(id);
