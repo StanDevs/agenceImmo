@@ -8,7 +8,7 @@
       <editComponent
         :key="SendToForm._id"
         :advert="SendToForm"
-        @edit="processToChargeVarForAdd"
+        @edit="processToChargeVarForedit"
       ></editComponent>
     </div>
     <adminadvert-component
@@ -37,6 +37,9 @@ export default {
     processToChargeVarForAdd(value) {
       this.SendToForm = value;
     },
+    processToChargeVarForedit(value) {
+      this.SendToForm = value;
+    },
     removeAdvert(advert) {
       console.log(advert._id);
       this.adverttab = this.adverttab.filter((ad) => ad._id !== advert._id);
@@ -58,6 +61,7 @@ export default {
       },
     ],
     SendToForm: [],
+    SendToEdit: [],
   }),
   mounted() {
     console.log('test');
