@@ -112,7 +112,7 @@ export default {
     image: '',
   }),
   methods: {
-    addAdvert() {
+    addAdvert(e) {
       const model = {
         title: this.title,
         type: this.type,
@@ -134,6 +134,7 @@ export default {
           // Erreur avec mongo
           console.log(err);
         });
+      window.alert('Votre bien a été ajouté');
     },
   },
 };
