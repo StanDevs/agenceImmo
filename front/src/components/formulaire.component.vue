@@ -2,20 +2,26 @@
           <div id="displayPictureEnergyLabel" class="input">
             <label>Bilan énergétique</label>
             <div>
-              <input type="radio" id="A" name="energyLabel" value="A" v-model="bilanEnergetique">
+              <input type="radio" id="A" name="energyLabel" value="A" v-model=
+              "bilanEnergetique" >
                <span>A</span>
-              <input type="radio" id="B" name="energyLabel" value="B" v-model="bilanEnergetique">
+              <input type="radio" id="B" name="energyLabel" value="B" v-model=
+              "bilanEnergetique" >
               <span>B</span>
-              <input type="radio" id="C" name="energyLabel" value="C" v-model="bilanEnergetique">
+              <input type="radio" id="C" name="energyLabel" value="C" v-model=
+              "bilanEnergetique" >
               <span>C</span>
-              <input type="radio" id="D" name="energyLabel" value="D" v-model="bilanEnergetique">
+              <input type="radio" id="D" name="energyLabel" value="D" v-model=
+              "bilanEnergetique" >
               <span>D</span>
-              <input type="radio" id="E" name="energyLabel" value="E" v-model="bilanEnergetique">
+              <input type="radio" id="E" name="energyLabel" value="E" v-model=
+              "bilanEnergetique">
               <span>E</span>
-              <input type="radio" id="F" name="energyLabel" value="F" v-model="bilanEnergetique">
+              <input type="radio" id="F" name="energyLabel" value="F" v-model=
+              "bilanEnergetique">
               <span>F</span>
               <input type="hidden" name="PathPicturesForEnergyLabel" :value=
-              "displayPicturesEnergyLabel('../pictures',false)">
+              "displayPicturesEnergyLabel('../pictures',false)" >
             </div>
             <!-- <img src= "/pictures/ALight.png" alt="mm"> -->
             <img :src= "displayPicturesEnergyLabel('/pictures',false)" alt="mm">
@@ -26,11 +32,26 @@ export default {
   name: 'Ad',
   pathPicturesEnergyLabel: 'ceci est un test',
   data: () => ({
-    bilanEnergetique: 'A',
+    bilanEnergetique: '',
     pathPicturesEnergyLabel: '/pictures',
   }),
   props: {
-    type: Object,
+    advert: {
+      type: Object,
+      required: true,
+    },
+  },
+  mounted() {
+    if (typeof advert === 'undefined') {
+      this.bilanEnergetique = 'A';
+    } else {
+      this.bilanEnergetique = this.advert.bilan;
+    }
+  },
+  watch: {
+    bilanEnergetique() {
+      this.$emit('editenrj', this.bilanEnergetique);
+    },
   },
   methods: {
     displayPicturesEnergyLabel(pathPicturesEnergyLabel, boolDarkOrLight) {
