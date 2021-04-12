@@ -112,7 +112,7 @@ export default {
     image: '',
   }),
   methods: {
-    addAdvert(e) {
+    addAdvert() {
       const model = {
         title: this.title,
         type: this.type,
