@@ -13,7 +13,7 @@
         <i class="fas fa-couch"></i>
         {{ advert.isFurnished === true ? 'meublé' : 'non meublé' }}
       </div>
-      <div><i class="fas fa-lightbulb"></i>{{ advert.bilan }}A</div>
+      <div><i class="fas fa-lightbulb"></i>{{ advert.bilan }}</div>
     </div>
     <p>{{ advert.description }}</p>
   </div>
