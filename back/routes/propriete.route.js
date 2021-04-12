@@ -48,4 +48,13 @@ router.post("/", function (req, res, next) {
     });
 });
 
+router.delete("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+
+  Propriete.findByIdAndDelete(id).then((deleted) => {
+    res.send("deleted");
+  });
+});
+
 module.exports = router; //Dernier truc a faire

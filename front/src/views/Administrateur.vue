@@ -4,14 +4,21 @@
       <a href="/administrateur">Administrateur</a>
       <a href="/property" class="addProperty">Ajouter un bien</a>
     </div>
-    <div v-if="SendToForm._id != undefined ">
-      <editComponent :key="SendToForm._id"  :advert=
-      "SendToForm" @edit="processToChargeVarForAdd"></editComponent>
+    <div v-if="SendToForm._id != undefined">
+      <editComponent
+        :key="SendToForm._id"
+        :advert="SendToForm"
+        @edit="processToChargeVarForAdd"
+      ></editComponent>
     </div>
-     <adminadvert-component v-for=
-     "type in adverttab" :key="type.id" :advert="type" @edit=
-     "processToChargeVarForAdd" @remove="processToChargeVarForDelete" ></adminadvert-component>
-     <h1>t:{{SendToForm.price}}</h1>
+    <adminadvert-component
+      v-for="type in adverttab"
+      :key="type.id"
+      :advert="type"
+      @edit="processToChargeVarForAdd"
+      @remove="removeAdvert"
+    ></adminadvert-component>
+    <h1>t:{{ SendToForm.price }}</h1>
   </div>
 </template>
 
@@ -30,9 +37,9 @@ export default {
     processToChargeVarForAdd(value) {
       this.SendToForm = value;
     },
-    processToChargeVarForDelete(value) {
-      this.SendToDelete = value;
-      console.log(this.SendToDelete);
+    removeAdvert(advert) {
+      console.log(advert._id);
+      this.adverttab = this.adverttab.filter((ad) => ad._id !== advert._id);
     },
   },
   data: () => ({
@@ -51,7 +58,6 @@ export default {
       },
     ],
     SendToForm: [],
-    SendToDelete: [],
   }),
   mounted() {
     console.log('test');
@@ -64,27 +70,25 @@ export default {
 </script>
 
 <style>
-.adminNavBar{
+.adminNavBar {
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color:#42b983;
+  background-color: #42b983;
   padding: 15px;
   margin-bottom: 2%;
 }
-.addProperty{
 
-}
-.adminNavBar a{
+.adminNavBar a {
   color: #fff;
   padding: 5px;
   margin-right: 5px;
   margin-left: 5px;
-  text-decoration:none;
+  text-decoration: none;
 }
-.adminNavBar a:hover{
+.adminNavBar a:hover {
   transition: 0.3s;
   border-radius: 10px;
-  background-color:rgba(255, 255, 255, 0.144);
+  background-color: rgba(255, 255, 255, 0.144);
 }
 </style>
