@@ -41,11 +41,14 @@ export default {
     deleteAdvert() {
       const id = this.advert._id;
       console.log(id);
-      const link = `http://localhost:3000/properties/${id}`;
-      axios.delete(link).then((response) => {
-        console.log(response);
-      });
-      this.$emit('remove', this.advert);
+      const isConfirm = window.confirm('Confirmez-vous la suppression du bien ?');
+      if (isConfirm) {
+        const link = `http://localhost:3000/properties/${id}`;
+        axios.delete(link).then((response) => {
+          console.log(response);
+        });
+        this.$emit('remove', this.advert);
+      }
     },
   },
 };
